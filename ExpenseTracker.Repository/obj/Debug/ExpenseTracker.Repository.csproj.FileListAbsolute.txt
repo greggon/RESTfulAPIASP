@@ -1,0 +1,11 @@
+C:\Users\goncharg\Documents\Visual Studio 2012\Projects\RESTfulAPIASP\ExpenseTracker.Repository\obj\Debug\ExpenseTracker.Repository.csprojResolveAssemblyReference.cache
+C:\Users\goncharg\Documents\Visual Studio 2012\Projects\RESTfulAPIASP\ExpenseTracker.Repository\bin\Debug\ExpenseTracker.Repository.dll
+C:\Users\goncharg\Documents\Visual Studio 2012\Projects\RESTfulAPIASP\ExpenseTracker.Repository\bin\Debug\ExpenseTracker.Repository.pdb
+C:\Users\goncharg\Documents\Visual Studio 2012\Projects\RESTfulAPIASP\ExpenseTracker.Repository\bin\Debug\EntityFramework.dll
+C:\Users\goncharg\Documents\Visual Studio 2012\Projects\RESTfulAPIASP\ExpenseTracker.Repository\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\goncharg\Documents\Visual Studio 2012\Projects\RESTfulAPIASP\ExpenseTracker.Repository\bin\Debug\ExpenseTracker.DTO.dll
+C:\Users\goncharg\Documents\Visual Studio 2012\Projects\RESTfulAPIASP\ExpenseTracker.Repository\bin\Debug\ExpenseTracker.DTO.pdb
+C:\Users\goncharg\Documents\Visual Studio 2012\Projects\RESTfulAPIASP\ExpenseTracker.Repository\bin\Debug\EntityFramework.xml
+C:\Users\goncharg\Documents\Visual Studio 2012\Projects\RESTfulAPIASP\ExpenseTracker.Repository\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\goncharg\Documents\Visual Studio 2012\Projects\RESTfulAPIASP\ExpenseTracker.Repository\obj\Debug\ExpenseTracker.Repository.dll
+C:\Users\goncharg\Documents\Visual Studio 2012\Projects\RESTfulAPIASP\ExpenseTracker.Repository\obj\Debug\ExpenseTracker.Repository.pdb

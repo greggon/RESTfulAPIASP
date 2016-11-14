@@ -1,0 +1,11 @@
+C:\Users\goncharg\Documents\Visual Studio 2012\Projects\RESTfulAPIASP\ExpenseTracker.DTO\obj\Debug\ExpenseTracker.DTO.csprojResolveAssemblyReference.cache
+C:\Users\goncharg\Documents\Visual Studio 2012\Projects\RESTfulAPIASP\ExpenseTracker.DTO\bin\Debug\ExpenseTracker.DTO.dll
+C:\Users\goncharg\Documents\Visual Studio 2012\Projects\RESTfulAPIASP\ExpenseTracker.DTO\bin\Debug\ExpenseTracker.DTO.pdb
+C:\Users\goncharg\Documents\Visual Studio 2012\Projects\RESTfulAPIASP\ExpenseTracker.DTO\bin\Debug\mscorlib.dll
+C:\Users\goncharg\Documents\Visual Studio 2012\Projects\RESTfulAPIASP\ExpenseTracker.DTO\bin\Debug\normidna.nlp
+C:\Users\goncharg\Documents\Visual Studio 2012\Projects\RESTfulAPIASP\ExpenseTracker.DTO\bin\Debug\normnfc.nlp
+C:\Users\goncharg\Documents\Visual Studio 2012\Projects\RESTfulAPIASP\ExpenseTracker.DTO\bin\Debug\normnfd.nlp
+C:\Users\goncharg\Documents\Visual Studio 2012\Projects\RESTfulAPIASP\ExpenseTracker.DTO\bin\Debug\normnfkc.nlp
+C:\Users\goncharg\Documents\Visual Studio 2012\Projects\RESTfulAPIASP\ExpenseTracker.DTO\bin\Debug\normnfkd.nlp
+C:\Users\goncharg\Documents\Visual Studio 2012\Projects\RESTfulAPIASP\ExpenseTracker.DTO\obj\Debug\ExpenseTracker.DTO.dll
+C:\Users\goncharg\Documents\Visual Studio 2012\Projects\RESTfulAPIASP\ExpenseTracker.DTO\obj\Debug\ExpenseTracker.DTO.pdb
