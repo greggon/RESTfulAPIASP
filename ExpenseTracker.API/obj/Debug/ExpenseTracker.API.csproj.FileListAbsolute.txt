@@ -29,3 +29,35 @@ C:\Users\goncharg\Documents\Visual Studio 2012\Projects\RESTfulAPIASP\ExpenseTra
 C:\Users\goncharg\Documents\Visual Studio 2012\Projects\RESTfulAPIASP\ExpenseTracker.API\obj\Debug\ExpenseTracker.API.dll
 C:\Users\goncharg\Documents\Visual Studio 2012\Projects\RESTfulAPIASP\ExpenseTracker.API\obj\Debug\ExpenseTracker.API.pdb
 C:\Users\goncharg\Documents\Visual Studio 2012\Projects\RESTfulAPIASP\ExpenseTracker.API\bin\Marvin.JsonPatch.dll
+C:\GIT\RESTfulAPIASP\ExpenseTracker.API\bin\ExpenseTracker.API.dll
+C:\GIT\RESTfulAPIASP\ExpenseTracker.API\bin\ExpenseTracker.API.pdb
+C:\GIT\RESTfulAPIASP\ExpenseTracker.API\bin\EntityFramework.dll
+C:\GIT\RESTfulAPIASP\ExpenseTracker.API\bin\EntityFramework.SqlServer.dll
+C:\GIT\RESTfulAPIASP\ExpenseTracker.API\bin\ExpenseTracker.Constants.dll
+C:\GIT\RESTfulAPIASP\ExpenseTracker.API\bin\ExpenseTracker.DTO.dll
+C:\GIT\RESTfulAPIASP\ExpenseTracker.API\bin\ExpenseTracker.Repository.dll
+C:\GIT\RESTfulAPIASP\ExpenseTracker.API\bin\Marvin.JsonPatch.dll
+C:\GIT\RESTfulAPIASP\ExpenseTracker.API\bin\Microsoft.Owin.dll
+C:\GIT\RESTfulAPIASP\ExpenseTracker.API\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\GIT\RESTfulAPIASP\ExpenseTracker.API\bin\Newtonsoft.Json.dll
+C:\GIT\RESTfulAPIASP\ExpenseTracker.API\bin\Owin.dll
+C:\GIT\RESTfulAPIASP\ExpenseTracker.API\bin\System.Net.Http.Formatting.dll
+C:\GIT\RESTfulAPIASP\ExpenseTracker.API\bin\System.Web.Http.dll
+C:\GIT\RESTfulAPIASP\ExpenseTracker.API\bin\System.Web.Http.Owin.dll
+C:\GIT\RESTfulAPIASP\ExpenseTracker.API\bin\System.Web.Http.WebHost.dll
+C:\GIT\RESTfulAPIASP\ExpenseTracker.API\bin\ExpenseTracker.Constants.pdb
+C:\GIT\RESTfulAPIASP\ExpenseTracker.API\bin\ExpenseTracker.DTO.pdb
+C:\GIT\RESTfulAPIASP\ExpenseTracker.API\bin\ExpenseTracker.Repository.pdb
+C:\GIT\RESTfulAPIASP\ExpenseTracker.API\bin\EntityFramework.xml
+C:\GIT\RESTfulAPIASP\ExpenseTracker.API\bin\EntityFramework.SqlServer.xml
+C:\GIT\RESTfulAPIASP\ExpenseTracker.API\bin\Microsoft.Owin.xml
+C:\GIT\RESTfulAPIASP\ExpenseTracker.API\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\GIT\RESTfulAPIASP\ExpenseTracker.API\bin\Newtonsoft.Json.xml
+C:\GIT\RESTfulAPIASP\ExpenseTracker.API\bin\System.Net.Http.Formatting.xml
+C:\GIT\RESTfulAPIASP\ExpenseTracker.API\bin\System.Web.Http.xml
+C:\GIT\RESTfulAPIASP\ExpenseTracker.API\bin\System.Web.Http.Owin.xml
+C:\GIT\RESTfulAPIASP\ExpenseTracker.API\bin\System.Web.Http.WebHost.xml
+C:\GIT\RESTfulAPIASP\ExpenseTracker.API\obj\Debug\ExpenseTracker.API.csprojResolveAssemblyReference.cache
+C:\GIT\RESTfulAPIASP\ExpenseTracker.API\obj\Debug\ExpenseTracker.API.dll
+C:\GIT\RESTfulAPIASP\ExpenseTracker.API\obj\Debug\ExpenseTracker.API.pdb
+C:\GIT\RESTfulAPIASP\ExpenseTracker.API\bin\System.Linq.Dynamic.dll

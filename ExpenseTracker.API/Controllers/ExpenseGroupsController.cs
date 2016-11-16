@@ -7,6 +7,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using Marvin.JsonPatch;
+using ExpenseTracker.API.Helpers;
 
 namespace ExpenseTracker.API.Controllers
 {
@@ -26,14 +27,16 @@ namespace ExpenseTracker.API.Controllers
             _repository = repository;
         }    
 
-        public IHttpActionResult Get()
+        public IHttpActionResult Get(string sort="id")
         {
             try
             {
                 var expenseGroups = _repository.GetExpenseGroups();
 
-                return Ok(expenseGroups.ToList()
-                                       .Select(eg => _expenseGroupFactory.CreateExpenseGroup(eg)));
+                return Ok(expenseGroups
+                    .ApplySort(sort)
+                    .ToList()
+                    .Select(eg => _expenseGroupFactory.CreateExpenseGroup(eg)));
             }
             catch (Exception)
             {
