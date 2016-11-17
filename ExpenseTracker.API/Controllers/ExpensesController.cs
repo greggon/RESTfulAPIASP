@@ -33,7 +33,7 @@ namespace ExpenseTracker.API.Controllers
 
 
         [Route("expensegroups/{expenseGroupId}/expenses", Name = "ExpensesForGroup")]
-        public IHttpActionResult Get(int expenseGroupId, string sort = "date", string fields = null,  int page = 1, int pageSize = maxPageSize)
+        public IHttpActionResult Get(int expenseGroupId, string fields = null, string sort = "date", int page = 1, int pageSize = maxPageSize)
         {
             try
             {
@@ -115,10 +115,14 @@ namespace ExpenseTracker.API.Controllers
 
         [Route("expensegroups/{expenseGroupId}/expenses/{id}")]
         [Route("expenses/{id}")]
-        public IHttpActionResult Get(int id, int? expenseGroupId = null)
+        public IHttpActionResult Get(int id, int? expenseGroupId = null, string fields = null)
         {
             try
             {
+                List<string> listOfFields = new List<string>();
+                if (fields != null)
+                    listOfFields = fields.ToLower().Split(',').ToList();
+
                 Repository.Entities.Expense expense = null;
 
                 if (expenseGroupId == null)
@@ -138,7 +142,7 @@ namespace ExpenseTracker.API.Controllers
 
                 if (expense != null)
                 {
-                    var returnValue = _expenseFactory.CreateExpense(expense);
+                    var returnValue = _expenseFactory.CreateDataShapedObject(expense, listOfFields);
                     return Ok(returnValue);
                 }
                 else

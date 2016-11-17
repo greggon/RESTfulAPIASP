@@ -18,7 +18,7 @@ namespace ExpenseTracker.API.Controllers
         IExpenseTrackerRepository _repository;
         ExpenseGroupFactory _expenseGroupFactory = new ExpenseGroupFactory();
 
-        private const int maxPageSize = 10;
+        const int maxPageSize = 10;
 
         public ExpenseGroupsController()
         {
@@ -32,10 +32,20 @@ namespace ExpenseTracker.API.Controllers
         }    
 
         [Route("api/expensegroups", Name = "ExpenseGroupsList")]
-        public IHttpActionResult Get(string sort="id", string status = null, string userId = null, int page =1, int pageSize = 5)
+        public IHttpActionResult Get(string fields = null, string sort = "id", string status = null, string userId = null, int page = 1, int pageSize = maxPageSize)
         {
             try
             {
+                bool includeExpenses = false;
+                List<string> listOfFields = new List<string>();
+
+                // we should include expenses when the fields-string contains "expenses", or "expenses.id"
+                if (fields != null)
+                {
+                    listOfFields = fields.ToLower().Split(',').ToList();
+                    includeExpenses = listOfFields.Any(f => f.Contains("expenses"));
+                }
+
                 int statusId = -1;
                 if (status != null)
                 {
@@ -54,13 +64,24 @@ namespace ExpenseTracker.API.Controllers
                             break;
                     }
                 }
+
+                IQueryable<Repository.Entities.ExpenseGroup> expenseGroups = null;
+                if (includeExpenses)
+                {
+                    expenseGroups = _repository.GetExpenseGroupsWithExpenses();
+                }
+                else
+                {
+                    expenseGroups = _repository.GetExpenseGroups();
+                }
                 
                 //get expensegroupds from repository
-                var expenseGroups = _repository.GetExpenseGroups()
-                                               .ApplySort(sort)
-                                               .Where(eg => (statusId == -1 || eg.ExpenseGroupStatusId == statusId))
-                                               .Where(eg => (userId == null || eg.UserId == userId));
+                expenseGroups = expenseGroups.ApplySort(sort)
+                                             .Where(eg => (statusId == -1 || eg.ExpenseGroupStatusId == statusId))
+                                             .Where(eg => (userId == null || eg.UserId == userId));
 
+
+                //ensure the page size isn't larger than the maximum
                 if (pageSize > maxPageSize)
                     pageSize = maxPageSize;
 
@@ -75,6 +96,7 @@ namespace ExpenseTracker.API.Controllers
                                                             page = page - 1,
                                                             pageSize = pageSize,
                                                             sort = sort,
+                                                            fields = fields,
                                                             status = status,
                                                             userId = userId
                                                         })
@@ -86,6 +108,7 @@ namespace ExpenseTracker.API.Controllers
                                                             page = page + 1,
                                                             pageSize = pageSize,
                                                             sort = sort,
+                                                            fields = fields,
                                                             status = status,
                                                             userId = userId
                                                         })
@@ -109,7 +132,7 @@ namespace ExpenseTracker.API.Controllers
                               .Skip(pageSize*(page - 1))
                               .Take(pageSize)
                               .ToList()
-                              .Select(eg => _expenseGroupFactory.CreateExpenseGroup(eg)));
+                              .Select(eg => _expenseGroupFactory.CreateDataShapedObject(eg, listOfFields)));
             }
             catch (Exception)
             {
@@ -118,18 +141,29 @@ namespace ExpenseTracker.API.Controllers
             }
         }
 
-        public IHttpActionResult Get(int id)
+        public IHttpActionResult Get(int id, string fields = null)
         {
             try
             {
-                var expenseGroup = _repository.GetExpenseGroup(id);
+                bool includesExpenses = false;
+                List<string> listOfFields = new List<string>();
 
-                if (expenseGroup == null)
-                    return NotFound();
-                else
+                if (fields != null)
                 {
-                    return Ok(_expenseGroupFactory.CreateExpenseGroup(expenseGroup));
+                    listOfFields = fields.ToLower().Split(',').ToList();
+                    includesExpenses = listOfFields.Any(f => f.Contains("expenses"));
                 }
+
+                Repository.Entities.ExpenseGroup expenseGroup;
+                if (includesExpenses)
+                    expenseGroup = _repository.GetExpenseGroupWithExpenses(id);
+                else 
+                    expenseGroup = _repository.GetExpenseGroup(id);
+
+                if(expenseGroup != null)
+                    return Ok(_expenseGroupFactory.CreateDataShapedObject(expenseGroup, listOfFields));
+                return NotFound();
+                
             }
             catch (Exception)
             {
@@ -139,6 +173,7 @@ namespace ExpenseTracker.API.Controllers
         }
 
         [HttpPost]
+        [Route("api/expensegroups")]
         public IHttpActionResult Post([FromBody] DTO.ExpenseGroup expenseGroup)
         {
             try
@@ -152,7 +187,7 @@ namespace ExpenseTracker.API.Controllers
                 if (result.Status == RepositoryActionStatus.Created)
                 {
                     var newExpenseGroup = _expenseGroupFactory.CreateExpenseGroup(result.Entity);
-                    return Created(Request.RequestUri + "/" + newExpenseGroup.Id.ToString(), newExpenseGroup);
+                    return Created<DTO.ExpenseGroup>(Request.RequestUri + "/" + newExpenseGroup.Id.ToString(), newExpenseGroup);
                 }
                 return BadRequest();
             }
