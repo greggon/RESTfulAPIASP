@@ -67,7 +67,6 @@ namespace ExpenseTracker.API.Controllers
                 //calculate data for metadata
                 var totalCount = expenseGroups.Count();
                 var totalPages = (int) Math.Ceiling((double) totalCount/pageSize);
-
                 var urlHelper = new UrlHelper(Request);
                 var prevLink = page > 1
                                    ? urlHelper.Link("ExpenseGroupsList",
