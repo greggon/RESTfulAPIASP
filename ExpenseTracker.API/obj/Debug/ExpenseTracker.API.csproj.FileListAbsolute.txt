@@ -61,3 +61,8 @@ C:\GIT\RESTfulAPIASP\ExpenseTracker.API\obj\Debug\ExpenseTracker.API.csprojResol
 C:\GIT\RESTfulAPIASP\ExpenseTracker.API\obj\Debug\ExpenseTracker.API.dll
 C:\GIT\RESTfulAPIASP\ExpenseTracker.API\obj\Debug\ExpenseTracker.API.pdb
 C:\GIT\RESTfulAPIASP\ExpenseTracker.API\bin\System.Linq.Dynamic.dll
+C:\GIT\RESTfulAPIASP\ExpenseTracker.API\bin\CacheCow.Common.dll
+C:\GIT\RESTfulAPIASP\ExpenseTracker.API\bin\CacheCow.Server.dll
+C:\GIT\RESTfulAPIASP\ExpenseTracker.API\bin\Microsoft.Web.Infrastructure.dll
+C:\GIT\RESTfulAPIASP\ExpenseTracker.API\bin\CacheCow.Common.xml
+C:\GIT\RESTfulAPIASP\ExpenseTracker.API\bin\CacheCow.Server.xml
