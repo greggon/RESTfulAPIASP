@@ -1,4 +1,5 @@
 ﻿using System.Web;
+using System.Web.Http.Cors;
 using System.Web.Http.Routing;
 using ExpenseTracker.Repository;
 using ExpenseTracker.Repository.Factories;
@@ -13,6 +14,8 @@ using ExpenseTracker.API.Helpers;
 
 namespace ExpenseTracker.API.Controllers
 {
+    [EnableCors("*","*","GET,POST")]
+
     public class ExpenseGroupsController : ApiController
     {
         IExpenseTrackerRepository _repository;
