@@ -1,4 +1,5 @@
-﻿using ExpenseTracker.DTO;
+﻿using System;
+using ExpenseTracker.DTO;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -68,8 +69,35 @@ namespace ExpenseTracker.WebClient.Controllers
         // POST: ExpenseGroups/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(ExpenseGroup expenseGroup)
+        public async Task<ActionResult> Create(ExpenseGroup expenseGroup)
         {
+            try
+            {
+                var client = ExpenseTrackerHttpClient.GetClient();
+
+                //an expensegroup is created with status "Open", for the current user.
+                expenseGroup.ExpenseGroupStatusId = 1;
+                expenseGroup.UserId = @"https://expensetrackeridsrv3/embedded_1";
+
+                var serializedItemToCreate = JsonConvert.SerializeObject(expenseGroup);
+
+                var response = await client.PostAsync("api/expensegroups",
+                    new StringContent(serializedItemToCreate,
+                        System.Text.Encoding.Unicode,
+                        "application/json"));
+
+                if (response.IsSuccessStatusCode)
+                {
+                    return RedirectToAction("Index");
+                }
+                else
+                    return Content("An error occurred.");
+
+            }
+            catch 
+            {
+                return Content("An error occurred.");
+            }
             return View();
         }
 
