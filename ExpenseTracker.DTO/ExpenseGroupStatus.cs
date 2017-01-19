@@ -1,5 +1,4 @@
-﻿
-namespace ExpenseTracker.DTO
+﻿namespace ExpenseTracker.DTO
 {
     public class ExpenseGroupStatus
     {

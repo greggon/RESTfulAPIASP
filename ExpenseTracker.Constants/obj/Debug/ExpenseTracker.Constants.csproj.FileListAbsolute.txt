@@ -9,3 +9,14 @@ C:\Users\goncharg\Documents\Visual Studio 2012\Projects\RESTfulAPIASP\ExpenseTra
 C:\Users\goncharg\Documents\Visual Studio 2012\Projects\RESTfulAPIASP\ExpenseTracker.Constants\bin\Debug\normnfkd.nlp
 C:\Users\goncharg\Documents\Visual Studio 2012\Projects\RESTfulAPIASP\ExpenseTracker.Constants\obj\Debug\ExpenseTracker.Constants.dll
 C:\Users\goncharg\Documents\Visual Studio 2012\Projects\RESTfulAPIASP\ExpenseTracker.Constants\obj\Debug\ExpenseTracker.Constants.pdb
+C:\GIT\RESTfulAPIASP\ExpenseTracker.Constants\obj\Debug\ExpenseTracker.Constants.csprojResolveAssemblyReference.cache
+C:\GIT\RESTfulAPIASP\ExpenseTracker.Constants\obj\Debug\ExpenseTracker.Constants.dll
+C:\GIT\RESTfulAPIASP\ExpenseTracker.Constants\obj\Debug\ExpenseTracker.Constants.pdb
+C:\GIT\RESTfulAPIASP\ExpenseTracker.Constants\bin\Debug\ExpenseTracker.Constants.dll
+C:\GIT\RESTfulAPIASP\ExpenseTracker.Constants\bin\Debug\ExpenseTracker.Constants.pdb
+C:\GIT\RESTfulAPIASP\ExpenseTracker.Constants\bin\Debug\mscorlib.dll
+C:\GIT\RESTfulAPIASP\ExpenseTracker.Constants\bin\Debug\normidna.nlp
+C:\GIT\RESTfulAPIASP\ExpenseTracker.Constants\bin\Debug\normnfc.nlp
+C:\GIT\RESTfulAPIASP\ExpenseTracker.Constants\bin\Debug\normnfd.nlp
+C:\GIT\RESTfulAPIASP\ExpenseTracker.Constants\bin\Debug\normnfkc.nlp
+C:\GIT\RESTfulAPIASP\ExpenseTracker.Constants\bin\Debug\normnfkd.nlp

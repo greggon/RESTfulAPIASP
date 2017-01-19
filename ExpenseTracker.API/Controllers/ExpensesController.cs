@@ -30,17 +30,21 @@ namespace ExpenseTracker.API.Controllers
         {
             _repository = repository;
         }
-
+         
 
         [Route("expensegroups/{expenseGroupId}/expenses", Name = "ExpensesForGroup")]
-        public IHttpActionResult Get(int expenseGroupId, string fields = null, string sort = "date", int page = 1, int pageSize = maxPageSize)
+        public IHttpActionResult Get(int expenseGroupId, string fields = null, string sort = "date"
+            , int page = 1, int pageSize = maxPageSize)
         {
             try
             {
-                List<string> listOfFields = new List<string>();
-                if (fields != null)
-                    listOfFields = fields.ToLower().Split(',').ToList();
 
+                List<string> lstOfFields = new List<string>();
+
+                if (fields != null)
+                {
+                    lstOfFields = fields.ToLower().Split(',').ToList();
+                }
 
                 var expenses = _repository.GetExpenses(expenseGroupId);
 
@@ -63,23 +67,13 @@ namespace ExpenseTracker.API.Controllers
                 var urlHelper = new UrlHelper(Request);
 
                 var prevLink = page > 1 ? urlHelper.Link("ExpensesForGroup",
-                    new
-                    {
-                        page = page - 1,
-                        pageSize = pageSize,
-                        expenseGroupId = expenseGroupId,
+                    new { page = page - 1, pageSize = pageSize, expenseGroupId = expenseGroupId,
                         fields = fields,
-                        sort = sort
-                    }) : "";
+                        sort = sort }) : "";
                 var nextLink = page < totalPages ? urlHelper.Link("ExpensesForGroup",
-                    new
-                    {
-                        page = page + 1,
-                        pageSize = pageSize,
-                        expenseGroupId = expenseGroupId,
+                    new { page = page + 1, pageSize = pageSize, expenseGroupId = expenseGroupId,
                         fields = fields,
-                        sort = sort
-                    }) : "";
+                        sort = sort }) : "";
 
 
                 var paginationHeader = new
@@ -96,12 +90,14 @@ namespace ExpenseTracker.API.Controllers
                 Newtonsoft.Json.JsonConvert.SerializeObject(paginationHeader));
 
 
+
                 var expensesResult = expenses
                     .ApplySort(sort)
                     .Skip(pageSize * (page - 1))
                     .Take(pageSize)
                     .ToList()
-                    .Select(exp => _expenseFactory.CreateDataShapedObject(exp, listOfFields));
+                    .Select(exp => _expenseFactory.CreateDataShapedObject(exp, lstOfFields));
+                
 
                 return Ok(expensesResult);
 
@@ -110,7 +106,7 @@ namespace ExpenseTracker.API.Controllers
             {
                 return InternalServerError();
             }
-        }
+        } 
 
 
         [VersionedRoute("expensegroups/{expenseGroupId}/expenses/{id}", 1)]
@@ -119,9 +115,12 @@ namespace ExpenseTracker.API.Controllers
         {
             try
             {
-                List<string> listOfFields = new List<string>();
+                List<string> lstOfFields = new List<string>();
+
                 if (fields != null)
-                    listOfFields = fields.ToLower().Split(',').ToList();
+                {
+                    lstOfFields = fields.ToLower().Split(',').ToList();
+                }
 
                 Repository.Entities.Expense expense = null;
 
@@ -142,7 +141,7 @@ namespace ExpenseTracker.API.Controllers
 
                 if (expense != null)
                 {
-                    var returnValue = _expenseFactory.CreateDataShapedObject(expense, listOfFields);
+                    var returnValue = _expenseFactory.CreateDataShapedObject(expense, lstOfFields);
                     return Ok(returnValue);
                 }
                 else
@@ -156,6 +155,8 @@ namespace ExpenseTracker.API.Controllers
                 return InternalServerError();
             }
         }
+
+
 
         [VersionedRoute("expensegroups/{expenseGroupId}/expenses/{id}", 2)]
         [VersionedRoute("expenses/{id}", 2)]
@@ -163,9 +164,12 @@ namespace ExpenseTracker.API.Controllers
         {
             try
             {
-                List<string> listOfFields = new List<string>();
+                List<string> lstOfFields = new List<string>();
+
                 if (fields != null)
-                    listOfFields = fields.ToLower().Split(',').ToList();
+                {
+                    lstOfFields = fields.ToLower().Split(',').ToList();
+                }
 
                 Repository.Entities.Expense expense = null;
 
@@ -186,7 +190,7 @@ namespace ExpenseTracker.API.Controllers
 
                 if (expense != null)
                 {
-                    var returnValue = _expenseFactory.CreateDataShapedObject(expense, listOfFields);
+                    var returnValue = _expenseFactory.CreateDataShapedObject(expense, lstOfFields);
                     return Ok(returnValue);
                 }
                 else
@@ -200,7 +204,6 @@ namespace ExpenseTracker.API.Controllers
                 return InternalServerError();
             }
         }
-
 
         [Route("expenses/{id}")]
         public IHttpActionResult Delete(int id)
@@ -301,7 +304,7 @@ namespace ExpenseTracker.API.Controllers
                 // find 
                 if (expensePatchDocument == null)
                 {
-                    return BadRequest();
+                    return BadRequest(); 
                 }
 
                 var expense = _repository.GetExpense(id);
@@ -335,6 +338,6 @@ namespace ExpenseTracker.API.Controllers
         }
 
 
-
+         
     }
 }

@@ -66,6 +66,9 @@ C:\GIT\RESTfulAPIASP\ExpenseTracker.API\bin\CacheCow.Server.dll
 C:\GIT\RESTfulAPIASP\ExpenseTracker.API\bin\Microsoft.Web.Infrastructure.dll
 C:\GIT\RESTfulAPIASP\ExpenseTracker.API\bin\CacheCow.Common.xml
 C:\GIT\RESTfulAPIASP\ExpenseTracker.API\bin\CacheCow.Server.xml
-C:\GIT\RESTfulAPIASP\ExpenseTracker.API\bin\System.Web.Cors.dll
-C:\GIT\RESTfulAPIASP\ExpenseTracker.API\bin\System.Web.Http.Cors.dll
-C:\GIT\RESTfulAPIASP\ExpenseTracker.API\bin\System.Web.Http.Cors.xml
+C:\GIT\RESTfulAPIASP\ExpenseTracker.API\bin\ExpenseTracker.API.dll.config
+C:\GIT\RESTfulAPIASP\ExpenseTracker.API\bin\System.Net.Http.Extensions.dll
+C:\GIT\RESTfulAPIASP\ExpenseTracker.API\bin\System.Net.Http.Primitives.dll
+C:\GIT\RESTfulAPIASP\ExpenseTracker.API\bin\System.Net.Http.Extensions.xml
+C:\GIT\RESTfulAPIASP\ExpenseTracker.API\bin\System.Net.Http.Primitives.xml
+C:\GIT\RESTfulAPIASP\ExpenseTracker.API\obj\Debug\ExpenseTracker.API.csproj.App.config

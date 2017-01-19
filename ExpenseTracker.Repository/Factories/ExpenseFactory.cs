@@ -3,10 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Dynamic;
 using System.Linq;
-using System.Linq.Expressions;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ExpenseTracker.Repository.Factories
 {
@@ -44,30 +41,47 @@ namespace ExpenseTracker.Repository.Factories
             };
         }
 
-        public object CreateDataShapedObject(Expense expense, List<string>listOfFields)
-        {
-            //pass-through from entity to DTO
-            return CreateDataShapedObject(CreateExpense(expense), listOfFields);
 
+        public object CreateDataShapedObject(Expense expense, List<string> lstOfFields)
+        {
+ 
+            return CreateDataShapedObject(CreateExpense(expense), lstOfFields);
         }
 
-        public object CreateDataShapedObject(DTO.Expense expense, List<string> listOfFields)
+
+        public object CreateDataShapedObject(DTO.Expense expense, List<string> lstOfFields)
         {
-            if (!listOfFields.Any())
-                return expense;
-            ExpandoObject objectToReturn = new ExpandoObject();
-            foreach (var field in listOfFields)
+
+            if (!lstOfFields.Any())
             {
-                var fieldValue = expense.GetType()
-                                        .GetProperty(field,
-                                                     BindingFlags.IgnoreCase | BindingFlags.Public |
-                                                     BindingFlags.Instance)
-                                        .GetValue(expense, null);
-                ((IDictionary<string, object>) objectToReturn).Add(field, fieldValue);
+                return expense;
             }
+            else
+            { 
 
-            return objectToReturn;
+                // create a new ExpandoObject & dynamically create the properties for this object
+
+                ExpandoObject objectToReturn = new ExpandoObject();
+                foreach (var field in lstOfFields)
+                {
+                    // need to include public and instance, b/c specifying a binding flag overwrites the
+                    // already-existing binding flags.
+
+                    var fieldValue = expense.GetType()
+                        .GetProperty(field, BindingFlags.IgnoreCase | BindingFlags.Public | BindingFlags.Instance)
+                        .GetValue(expense, null);
+
+                    // add the field to the ExpandoObject
+                    ((IDictionary<String, Object>)objectToReturn).Add(field, fieldValue);
+                }
+
+                return objectToReturn;
+            }
         }
+
+
+         
+  
 
     }
 }

@@ -1,5 +1,4 @@
-﻿using System;
-namespace ExpenseTracker.Repository
+﻿namespace ExpenseTracker.Repository
 {
     public interface IExpenseTrackerRepository
     {
