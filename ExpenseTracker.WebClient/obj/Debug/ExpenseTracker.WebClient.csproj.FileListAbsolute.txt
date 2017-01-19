@@ -38,3 +38,7 @@ C:\GIT\RESTfulAPIASP\ExpenseTracker.WebClient\bin\Antlr3.Runtime.pdb
 C:\GIT\RESTfulAPIASP\ExpenseTracker.WebClient\obj\Debug\ExpenseTracker.WebClient.csprojResolveAssemblyReference.cache
 C:\GIT\RESTfulAPIASP\ExpenseTracker.WebClient\obj\Debug\ExpenseTracker.WebClient.dll
 C:\GIT\RESTfulAPIASP\ExpenseTracker.WebClient\obj\Debug\ExpenseTracker.WebClient.pdb
+C:\GIT\RESTfulAPIASP\ExpenseTracker.WebClient\bin\PagedList.dll
+C:\GIT\RESTfulAPIASP\ExpenseTracker.WebClient\bin\PagedList.Mvc.dll
+C:\GIT\RESTfulAPIASP\ExpenseTracker.WebClient\bin\PagedList.xml
+C:\GIT\RESTfulAPIASP\ExpenseTracker.WebClient\bin\PagedList.Mvc.xml
