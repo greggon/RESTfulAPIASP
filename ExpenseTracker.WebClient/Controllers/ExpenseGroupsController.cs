@@ -1,6 +1,7 @@
 ﻿using System;
 using ExpenseTracker.DTO;
 using System.Collections.Generic;
+using System.IdentityModel.Protocols.WSTrust;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Mvc;
@@ -103,16 +104,45 @@ namespace ExpenseTracker.WebClient.Controllers
 
         // GET: ExpenseGroups/Edit/5
  
-        public ActionResult Edit(int id)
+        public async Task<ActionResult> Edit(int id)
         {
-            return View();
+            var client = ExpenseTrackerHttpClient.GetClient();
+            HttpResponseMessage response = await client.GetAsync("api/expensegroups/" + id);
+
+            if (response.IsSuccessStatusCode)
+            {
+                string content = await response.Content.ReadAsStringAsync();
+                var model = JsonConvert.DeserializeObject<ExpenseGroup>(content);
+                return View(model);
+            }
+            return Content("An error occurred.");
         }
 
         // POST: ExpenseGroups/Edit/5   
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, ExpenseGroup expenseGroup)
+        public async Task<ActionResult> Edit(int id, ExpenseGroup expenseGroup)
         {
+            try
+            {
+                var client = ExpenseTrackerHttpClient.GetClient();
+
+                //serialize & PUT
+                var serializeditemToUpdate = JsonConvert.SerializeObject(expenseGroup);
+
+                var response = await client.PutAsync("api/expensegroups/" + id,
+                    new StringContent(serializeditemToUpdate,
+                        System.Text.Encoding.Unicode, "application/json"));
+                if (response.IsSuccessStatusCode)
+                    return RedirectToAction("Index");
+                else
+                    return Content("An error has occurred.");
+
+            }
+            catch
+            {
+                return Content("An error has occurred.");
+            }
             return View();
         }
          
