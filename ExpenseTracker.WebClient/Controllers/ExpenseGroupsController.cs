@@ -1,7 +1,5 @@
-﻿using System;
-using ExpenseTracker.DTO;
+﻿using ExpenseTracker.DTO;
 using System.Collections.Generic;
-using System.IdentityModel.Protocols.WSTrust;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Mvc;
