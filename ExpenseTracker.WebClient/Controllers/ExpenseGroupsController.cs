@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Web.Mvc;
 using ExpenseTracker.WebClient.Helpers;
 using ExpenseTracker.WebClient.Models;
+using Marvin.JsonPatch;
 using Newtonsoft.Json;
 using PagedList;
 
@@ -125,15 +126,15 @@ namespace ExpenseTracker.WebClient.Controllers
         public async Task<ActionResult> Edit(int id)
         {
             var client = ExpenseTrackerHttpClient.GetClient();
-            HttpResponseMessage response = await client.GetAsync("api/expensegroups/" + id);
-
+            HttpResponseMessage response = await client.GetAsync("api/expensegroups/" + id
+                + "?fields=id,title,description");
+            string content = await response.Content.ReadAsStringAsync();
             if (response.IsSuccessStatusCode)
             {
-                string content = await response.Content.ReadAsStringAsync();
                 var model = JsonConvert.DeserializeObject<ExpenseGroup>(content);
                 return View(model);
             }
-            return Content("An error occurred.");
+            return Content("An error occurred." + content);
         }
 
         // POST: ExpenseGroups/Edit/5   
@@ -145,12 +146,15 @@ namespace ExpenseTracker.WebClient.Controllers
             {
                 var client = ExpenseTrackerHttpClient.GetClient();
 
-                //serialize & PUT
-                var serializeditemToUpdate = JsonConvert.SerializeObject(expenseGroup);
+                JsonPatchDocument<DTO.ExpenseGroup> patchDoc = new JsonPatchDocument<ExpenseGroup>();
+                patchDoc.Replace(eg => eg.Title, expenseGroup.Title);
+                patchDoc.Replace(eg => eg.Description, expenseGroup.Description);
 
-                var response = await client.PutAsync("api/expensegroups/" + id,
-                    new StringContent(serializeditemToUpdate,
-                        System.Text.Encoding.Unicode, "application/json"));
+                var serializedItemToUpdate = JsonConvert.SerializeObject(patchDoc);
+
+                var response = await client.PatchAsync("api/expensegroups/" + id,
+                    new StringContent(serializedItemToUpdate, System.Text.Encoding.Unicode, "application/json"));
+
                 if (response.IsSuccessStatusCode)
                     return RedirectToAction("Index");
                 else
@@ -161,7 +165,6 @@ namespace ExpenseTracker.WebClient.Controllers
             {
                 return Content("An error has occurred.");
             }
-            return View();
         }
          
 
