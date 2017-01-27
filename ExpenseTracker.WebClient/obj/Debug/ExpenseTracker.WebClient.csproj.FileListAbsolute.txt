@@ -43,3 +43,9 @@ C:\GIT\RESTfulAPIASP\ExpenseTracker.WebClient\bin\PagedList.Mvc.dll
 C:\GIT\RESTfulAPIASP\ExpenseTracker.WebClient\bin\PagedList.xml
 C:\GIT\RESTfulAPIASP\ExpenseTracker.WebClient\bin\PagedList.Mvc.xml
 C:\GIT\RESTfulAPIASP\ExpenseTracker.WebClient\bin\Marvin.JsonPatch.dll
+C:\GIT\RESTfulAPIASP\ExpenseTracker.WebClient\bin\Microsoft.IdentityModel.Protocol.Extensions.dll
+C:\GIT\RESTfulAPIASP\ExpenseTracker.WebClient\bin\Microsoft.Owin.Security.OpenIdConnect.dll
+C:\GIT\RESTfulAPIASP\ExpenseTracker.WebClient\bin\System.IdentityModel.Tokens.Jwt.dll
+C:\GIT\RESTfulAPIASP\ExpenseTracker.WebClient\bin\Microsoft.IdentityModel.Protocol.Extensions.xml
+C:\GIT\RESTfulAPIASP\ExpenseTracker.WebClient\bin\Microsoft.Owin.Security.OpenIdConnect.xml
+C:\GIT\RESTfulAPIASP\ExpenseTracker.WebClient\bin\System.IdentityModel.Tokens.Jwt.xml

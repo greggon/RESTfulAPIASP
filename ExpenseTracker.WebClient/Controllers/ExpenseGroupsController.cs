@@ -11,6 +11,7 @@ using PagedList;
 
 namespace ExpenseTracker.WebClient.Controllers
 {
+    [Authorize]
     public class ExpenseGroupsController : Controller
     {
 
